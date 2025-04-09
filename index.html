@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="styles.css?vers=4" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Courgette&family=Italiana&family=Kaushan+Script&family=Merienda:wght@300..900&family=Oswald:wght@200..700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@300..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://js.stripe.com/v3/"></script>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico?vers=2" />
+        <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        <title>Catering Solutions | Smackin Sammy's</title>
+        <meta name="description" content="Discover personalized beauty and skincare solutions to enhance your natural glow. Join us for expert beauty tips and product recommendations." />
+        <meta name="keywords" content="beauty, skincare, cosmetics, makeup, beauty tips, skincare routines, beauty products, natural glow" />
+        <meta property="og:title" content="Beauty and Skincare Solutions | Glow With Us" />
+        <meta property="og:description" content="Discover personalized beauty and skincare solutions to enhance your natural glow." />
+        <meta property="og:image" content="images\official-logo.png" />
+        <!-- <meta property="og:url" content="https://trainwithjay.live/index.html" /> -->
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <div id="main">
+            <!-- <div class="modal-container"><div class="modal"></div></div> -->
+            <div class="navbar">
+                <!-- <div class="nav-logo-wrapper"> -->
+                <a href="index.html" class="nav-logo"><img src="images/official-logo.png" class="nav-logo" /></a>
+                <!-- </div> -->
+                <div class="nav-button-container">
+                    <button class="nav-button" id="nav-button-home">HOME</button>
+                    <button class="nav-button" id="nav-button-challenges">ABOUT ME</button>
+                    <button class="nav-button" id="nav-button-programs">PHOTOS</button>
+                    <button class="nav-button" id="nav-button-contactme">INQUIRY</button>
+                    <div id="unfocused-div"></div>
+                    <div id="menu-container">
+                        <span class="menu-bar"></span>
+                        <span class="menu-bar"></span>
+                        <span class="menu-bar"></span>
+                    </div>
+                    <div id="mobile-menu-container">
+                        <a class="mobile-menu-btn" id="mobile-menu-home">HOME</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-challenges">CHALLENGES</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-merchandise">MERCHANDISE</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-programs">PROGRAMS</a>
+                        <a class="mobile-menu-btn" id="mobile-menu-contactme">CONTACT ME</a>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <!-- <video loop autoplay muted playsinline id="content-video">
+                    <source src="images/vid1.mov" />
+                </video> -->
+                <!-- <img src="images/food.gif" id="content-video" /> -->
+                <!-- <img src="images/vid1.mov" class="content-main-gif" /> -->
+                <div id="content-static-background"></div>
+                <div class="content-gif-overlay">
+                    <div class="content-overlay-container">
+                        <h1 class="content-name">Snackin Sammy's</h1>
+                        <h2 class="content-header">HIGH CLASS CATERING</h2>
+                        <h2 class="content-subheader">FOR THE BEST PRICE</h2>
+                        <br><br>
+                        <div class="content-buttons-container">
+                            <button class="content-buttons" id="content-products-btn">INQUIRY</button>
+                            <!-- <button class="content-buttons" style="background-color: transparent; color: white; border: 1px solid white" id="content-contactme-btn">CONTACT ME</button> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="content-box-2">
+                    <h2 class="content-box-4-title">SNACKIN SAMMY'S STORY</h2>
+                    <br />
+                    <img src="images/eva&nina.jpg" class="content-box-2-img" />
+                    <br />
+                    <div class="content-box-2-content">
+                        <p>
+                            <strong style="font-weight: 800">Evaura Cosmetics: Empowering Confidence, One Lash at a Time</strong>
+                            <br /><br />
+                            I've struggled with trichotillomania for years, leaving me feeling insecure and different. It wasn't just about my lashes it was about how I felt about myself. Everything
+                            changed when I discovered mascara. It gave me the confidence I'd been missing, reminding me that beauty isn't just about appearance
+                            <br /><br />
+                            The real turning point came when I met Nina, who shared my struggles. Her strength inspired me, and after her passing, I knew I wanted to honor her legacy. That's how
+                            Evaura Cosmetics was born.
+                            <br /><br />
+                            Evaura isn't just mascara it's a symbol of self love. Our formula gives you fuller lashes, but the true magic is in the confidence it brings. We understand insecurity, and
+                            we want you to know you are beautiful, just as you are. Evaura helps you embrace your uniqueness and feel confident every day.
+                            <br /><br />
+                            With Evaura, you're not just wearing mascara; you're wearing your confidence. You are beautiful, strong, and deserving of love and we're here to help you see it.
+                            <br /><br />
+                            <strong style="font-weight: bold">20% of all proceeds go directly to the TLC Foundation!</strong>
+                        </p>
+                    </div>
+                    <br />
+                    <button class="support-movement-btn">Support The Movement</button>
+                </div>
+                <!-- <div class="line-break"></div> -->
+                <form class="content-box-4" style="padding: 40px" id="contact-form">
+                    <h2 class="content-box-4-title">CONTACT ME</h2>
+                    <br />
+                    <h3 style="max-width: 80%">Feel free to send me a message if you have any questions about me or my products!</h3>
+                    <br /><br />
+                    <div class="contact-wrapper">
+                        <div class="contact-card">
+                            <input placeholder="Your Name" id="from_name" name="from_name" class="text-inputs" />
+                            <input placeholder="Email" id="reply_to" name="reply_to" class="text-inputs" />
+                            <textarea placeholder="Message" id="message" name="message"></textarea>
+                            <button class="send-msg-btn" id="send-msg-btn" type="submit">
+                                <div class="loader"></div>
+                                <p style="color: white" id="send-btn-text">Send</p>
+                            </button>
+                        </div>
+                        <div class="socials-card">
+                            <a class="brand-logo-wrapper" href="https://www.instagram.com/jsouthard22" target="_blank">
+                                <img src="images/insta-logo.png" class="brand-logos" />
+                                <p>Evauracosmetics</p>
+                            </a>
+                            <!-- <a class="brand-logo-wrapper" href="mailto:Trainingwithjayy@gmail.com?subject=Training%20Inquiry">
+                                <img src="images/email-icon.png" class="brand-logos" style="background-color: white" />
+                                <p>evauracosmeticss@gmail.com</p>
+                            </a> -->
+                            <a
+                                class="brand-logo-wrapper"
+                                href="https://www.google.com/maps/place/Naperville,+IL/@41.7458046,-88.2443301,12z/data=!3m1!4b1!4m6!3m5!1s0x880e5761e216cd07:0x87df9c2c7f203052!8m2!3d41.7508391!4d-88.1535352!16zL20vMHM2ZzQ?entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoASAFQAw%3D%3D"
+                                target="_blank"
+                            >
+                                <img src="images/location-icon.png" class="brand-logos" />
+                                <p>Naperville, IL.</p>
+                            </a>
+                            <!-- <div>
+                    <img src="images/insta-logo.png" class="brand-logos"/>
+                  </div> -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-details">
+                <!-- <a class="brand-logo-wrapper" href="https://www.instagram.com/Evauracosmetics" target="_blank">
+                    <img src="images/white-insta-icon.png" class="brand-logo-footer" />
+                </a> -->
+                <a class="brand-logo-wrapper" href="mailto:evauracosmeticss@gmail.com">
+                    <img src="images/white-gmail-icon.png" class="brand-logo-footer" />
+                </a>
+                <a
+                    class="brand-logo-wrapper"
+                    href="https://www.google.com/maps/place/Arlington+Heights,+IL/@42.0933805,-88.0681571,12z/data=!3m1!4b1!4m6!3m5!1s0x880fba3bce5cfa37:0xd764707ce5fdcac3!8m2!3d42.0883603!4d-87.9806265!16zL20vMHM0Zmc?entry=ttu&g_ep=EgoyMDI1MDIxNy4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                >
+                    <img src="images/white-location-icon.png" class="brand-logo-footer" />
+                </a>
+            </div>
+            <small class="footer-copyright">C 2025 Copyright: Kai Larson</small>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js?vers=9"></script>
+</html>
