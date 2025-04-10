@@ -103,7 +103,7 @@ select {
     flex-direction: column;
     align-items: start;
     justify-content: start;
-    background: linear-gradient(to top, rgb(46, 46, 46), transparent);
+    /* background: linear-gradient(to top, rgb(46, 46, 46), transparent); */
     color: white;
 }
 .content-overlay-container {
@@ -120,7 +120,7 @@ select {
 .merch-name {
     font-size: 40px;
     font-weight: 800;
-    color:#393939;
+    color: #393939;
     font-family: "Oswald", sans-serif;
     font-family: Courgette;
     /* font-family: "Yellowtail", serif; */
@@ -146,13 +146,13 @@ select {
 .content-header {
     font-size: 70px;
     font-weight: bold;
-    color:#393939;
+    color: #393939;
     max-width: 600px;
 }
 .content-subheader {
     font-size: 30px;
     font-weight: bold;
-    color:#393939;
+    color: #393939;
 }
 .content-buttons-container {
     display: flex;
@@ -160,7 +160,8 @@ select {
     gap: 10px;
     margin-top: 20px;
 }
-#content-video, #content-static-background {
+#content-video,
+#content-static-background {
     margin-top: 100px;
     width: 100%;
     height: calc(100vh);
@@ -369,14 +370,14 @@ li {
     text-decoration: underline;
 }
 .content-buttons {
-    background-color:#393939;
+    background-color: #393939;
     padding-inline: 40px;
     padding-block: 16px;
     font-size: 20px;
     font-weight: bold;
     border-radius: 10px;
     /* border: 1px solid white; */
-    color:#e9bcbc;
+    color: #e9bcbc;
 }
 .content-buttons:hover {
     /* background-color: rgb(217, 80, 139) !important;
@@ -384,7 +385,7 @@ li {
     transition: all linear 0.1s;
     cursor: pointer;
     /* color: rgb(46, 46, 46) !important; */
-    opacity: .7;
+    opacity: 0.7;
 }
 p {
     color: rgb(46, 46, 46);
@@ -398,32 +399,23 @@ p {
 #tier3-card {
     box-shadow: rgb(186, 125, 226) 0px 0px 10px 0px;
 }
-.program-card-buy-btn,
-.merch-buy-btn,
-.send-msg-btn,
-.enroll-btn,
-.support-movement-btn {
-    background-color: rgb(217, 80, 139);
-    padding: 10px;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    width: 100%;
-}
 .merch-details-buy-btn,
 .merch-buy-btn,
 .program-card-buy-btn,
 .send-msg-btn,
 .enroll-btn,
 .support-movement-btn {
-    background-color: rgb(217, 80, 139);
+    background-color: #393939;
     padding: 10px;
     border-radius: 5px;
-    color: white;
     font-weight: 500;
     width: 100%;
     font-size: 18px;
     /* border: 1px solid rgb(132, 20, 70); */
+}
+#send-btn-text {
+    /* color: #e9bcbc; */
+    color: white;
 }
 .support-movement-btn {
     width: fit-content;
@@ -467,9 +459,9 @@ p {
 .merch-details-buy-btn:hover,
 .enroll-btn:hover,
 .support-movement-btn:hover {
-    scale: 1.02;
+    /* scale: 1.02; */
     cursor: pointer;
-    box-shadow: rgb(217, 80, 139) 0px 0px 10px 0px;
+    opacity: 0.7;
     transition: all linear 0.1s;
 }
 .card-price {
@@ -487,8 +479,9 @@ p {
     padding-block: 7px;
     font-size: 16px;
     border-radius: 3px;
-    width: 90%;
+    width: 100%;
     background-color: white;
+    box-sizing: border-box;
 }
 input:focus,
 textarea:focus {
@@ -502,9 +495,10 @@ textarea {
     padding-block: 7px;
     font-size: 16px;
     border-radius: 5px;
-    width: 90%;
+    width: 100%;
     height: 250px;
     background-color: white;
+    box-sizing: border-box;
 }
 a {
     text-decoration: none;
@@ -519,6 +513,7 @@ a {
     padding: 20px;
     background-color: #e3e3e3;
     border-radius: 10px;
+    box-sizing: border-box;
 }
 .socials-card {
     display: flex;
