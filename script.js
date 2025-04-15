@@ -3,8 +3,9 @@ $(document).ready(function () {
 
     $(".loader").hide();
 
-    //need to do some form validation and add a loading modal or something
+    //quote submission handler
     $("#contact-form").on("submit", function (event) {
+        event.preventDefault();
         const isValidated = performFormValidation();
 
         console.log("Is valid? " + isValidated);
@@ -14,11 +15,11 @@ $(document).ready(function () {
         $("#send-btn-text").hide();
         $(".loader").show();
 
-        emailjs.init("5TPwb3kOLF_MWJSG7");
+        emailjs.init("GlFg3EuTZXyyfEwMz");
 
         event.preventDefault();
 
-        emailjs.sendForm("service_xraq8lh", "template_fvfhpkr", this).then(
+        emailjs.sendForm("service_p7xdqxu", "template_pz6vov4", this).then(
             function (response) {
                 $(".loader").hide();
                 $("#send-btn-text").show();
@@ -37,69 +38,62 @@ $(document).ready(function () {
     function performFormValidation() {
         const nameField = $("#from_name");
         const emailField = $("#reply_to");
-        const messageField = $("#message");
+        const phoneNo = $("#phone_no");
+        const eventType = $("#event_type");
+        const eventAddress = $("#event_address");
+        const eventDate = $("#event_date");
+        const eventTime = $("#event_time");
+        const noOfGuests = $("#no_of_guests");
+        const messageField = $("#additional_info"); //not required
 
         if (nameField[0].value.trim() === "") {
             nameField.addClass("invalid-field");
-            alert("Please enter your name before sending a message");
+            alert("Please enter your name before sending an inquiry");
             return false;
         }
 
         if (emailField[0].value.trim() == "" || !emailField[0].value.trim().includes("@")) {
             emailField.addClass("invalid-field");
-            alert("Please enter your email before sending a message");
+            alert("Please enter your email before sending an inquiry");
             return false;
         }
 
-        if (messageField[0].value.trim() == "") {
-            messageField.addClass("invalid-field");
-            alert("Please enter a message before sending a message");
+        if (phoneNo[0].value.trim() == "") {
+            phoneNo.addClass("invalid-field");
+            alert("Please enter a phone number before sending an inquiry");
             return false;
         }
 
-        return true;
-    }
+        if (eventType[0].value.trim() == "") {
+            eventType.addClass("invalid-field");
+            alert("Please select an event type before sending an inquiry");
+            return false;
+        }
 
-    $("#trial_form").on("submit", function (event) {
-        const isValidated = validateTrialForm();
+        if (eventAddress[0].value.trim() == "") {
+            eventAddress.addClass("invalid-field");
+            alert("Please enter an address before sending an inquiry");
+            return false;
+        }
 
-        if (!isValidated) return false;
+        if (eventDate[0].value.trim() == "") {
+            eventDate.addClass("invalid-field");
+            alert("Please enter a event date before sending an inquiry");
+            return false;
+        }
 
-        event.preventDefault();
-        
-        //consolidate the fitness goals input to a new one that just includes their goals => FIX THIS, IT COMES OUT BLANK FOR SOME REASON 
-        let fitnessGoals = "";
-        
-        $("#weight_loss").is(':checked') ? fitnessGoals+"Weight Loss, " : null;
-        $("#build_muscle").is(':checked') ? fitnessGoals+"Build Muscle, " : null;
-        $("#increase_flexibility").is(':checked') ? fitnessGoals+"Increase Flexibility, " : null;
-        $("#improve_endurance").is(':checked') ? fitnessGoals+"Improve Endurance, " : null;
-        $("#other").is(':checked') ? fitnessGoals+"Other, " : null;
+        if (eventTime[0].value.trim() == "") {
+            eventTime.addClass("invalid-field");
+            alert("Please enter the event time before sending an inquiry");
+            return false;
+        }
 
-        $("#fitness_goals").val(fitnessGoals);
+        if (noOfGuests[0].value.trim() == "") {
+            noOfGuests.addClass("invalid-field");
+            alert("Please enter the number of guests before sending an inquiry");
+            return false;
+        }
 
-        $("#send-btn-text").hide();
-        $(".loader").show();
-
-        emailjs.init("5TPwb3kOLF_MWJSG7");
-
-        emailjs.sendForm("service_xraq8lh", "template_wlvkz06", this).then(
-            function (response) {
-                $(".loader").hide();
-                $("#send-btn-text").show();
-                alert("Email has been sent, we will get back to you shortly");
-                document.getElementById("trial_form").reset();
-            },
-            function (error) {
-                $(".loader").hide();
-                $("#send-btn-text").show();
-                alert("Email could not be sent, please try again later");
-                console.log("FAILED...", error);
-            }
-        );
-    })
-
-    function validateTrialForm() {
         return true;
     }
 
@@ -133,79 +127,19 @@ $(document).ready(function () {
         selectedImage.removeClass("selected-image");
     });
 
-    $(".merch-other-img").click(function(e) {
-        const imgNo = e.target.id.substring(e.target.id.length-1, e.target.id.length);
-        
+    $(".merch-other-img").click(function (e) {
+        const imgNo = e.target.id.substring(e.target.id.length - 1, e.target.id.length);
+
         $(".merch-other-img").removeClass("selected-image");
 
         $(`#merch-img-${imgNo}`).addClass("selected-image");
         $("#selected-merch-image").attr("src", $(`#merch-img-${imgNo}`).attr("src"));
-    })
-
-    //merch products
-    $("#buy-hat-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/28o3fuctoa0cbTObII`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
     });
 
-    $("#buy-bloom-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/dR65nC8d84FS8HC5kt`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
-    });
-    //
-
-    //fitness plans
-    $("#foundation-buy-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/dR617m7947S4e1W28d`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
-    });
-
-    $("#accelerator-buy-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/aEUdU8alg7S49LGeV0`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
-    });
-
-    $("#elite-buy-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/aEUaHWfFAdco6zu28f`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
-    });
-    //
-
-    //90 Day Challenge
+    //purchase link example
     $("#three-competitor-enroll-btn").on("click", function () {
         // Create a new Payment Link with the dynamic price
         const paymentLink = `https://buy.stripe.com/7sIeYc0KG8W85vqaEG`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
-    });
-
-    $("#ten-competitor-enroll-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/28o5nC9hcdco5vq4gj`;
-
-        // Redirect to the Payment Link
-        window.location.href = paymentLink;
-    });
-
-    $("#twenty-competitor-enroll-btn").on("click", function () {
-        // Create a new Payment Link with the dynamic price
-        const paymentLink = `https://buy.stripe.com/3cs4jy50W6O0f60004`;
 
         // Redirect to the Payment Link
         window.location.href = paymentLink;
@@ -240,14 +174,6 @@ $(document).ready(function () {
         $(".content-gif-overlay").height(heightOfVideo);
     });
 
-    $(".view-hoodie-btn").click(function () {
-        window.location.href = "hoodie.html";
-    });
-
-    $(".view-cap-btn").click(function () {
-        window.location.href = "baseballcap.html";
-    });
-
     $("#menu-container").click(function () {
         if (isMenuActive) {
             $("#mobile-menu-container").animate({ right: -200 }, "slow");
@@ -280,12 +206,16 @@ $(document).ready(function () {
         }
     });
 
-    $("#content-products-btn").click(function () {
-        window.location.href = "bloom.html";
-    });
-
-    $(".support-movement-btn").click(function () {
-        window.location.href = "bloom.html";
+    $("#content-quote-btn").click(function () {
+        if (checkIfOnIndexPage() == false) {
+            window.location.href = "index.html?scrollTo=contactme";
+        }
+        $("html, body").animate(
+            {
+                scrollTop: $(".content-box-4").offset().top - 100,
+            },
+            1000
+        );
     });
 
     $("#content-contactme-btn").click(function () {
@@ -313,21 +243,9 @@ $(document).ready(function () {
         );
     });
 
-    $("#nav-button-programs").click(function () {
+    $("#nav-button-about").click(function () {
         if (checkIfOnIndexPage() == false) {
-            window.location.href = "index.html?scrollTo=programs";
-        }
-        $("html, body").animate(
-            {
-                scrollTop: $(".content-box-3").offset().top - 100,
-            },
-            1000
-        );
-    });
-
-    $("#nav-button-aboutme").click(function () {
-        if (checkIfOnIndexPage() == false) {
-            window.location.href = "index.html?scrollTo=aboutme";
+            window.location.href = "index.html?scrollTo=about";
         }
         $("html, body").animate(
             {
@@ -337,32 +255,28 @@ $(document).ready(function () {
         );
     });
 
-    $("#nav-button-challenges").click(function () {
+    $("#nav-button-photos").click(function () {
         if (checkIfOnIndexPage() == false) {
-            window.location.href = "index.html?scrollTo=challenges";
+            window.location.href = "index.html?scrollTo=photos";
         }
         $("html, body").animate(
             {
-                scrollTop: $(".content-box-7").offset().top - 100,
+                scrollTop: $("#content-box-images").offset().top - 100,
             },
             1000
         );
     });
 
-    $("#nav-button-contactme").click(function () {
+    $("#nav-button-quote").click(function () {
         if (checkIfOnIndexPage() == false) {
-            window.location.href = "index.html?scrollTo=contactme";
+            window.location.href = "index.html?scrollTo=quote";
         }
         $("html, body").animate(
             {
-                scrollTop: $(".content-box-4").offset().top,
+                scrollTop: $(".content-box-4").offset().top - 100,
             },
             1000
         );
-    });
-
-    $("#nav-button-merchandise").click(function () {
-        window.location.href = "merchandise.html";
     });
     //
 
@@ -380,22 +294,9 @@ $(document).ready(function () {
         hideMobileMenu();
     });
 
-    $("#mobile-menu-programs").click(function () {
+    $("#mobile-menu-about").click(function () {
         if (checkIfOnIndexPage() == false) {
-            window.location.href = "index.html?scrollTo=programs";
-        }
-        $("html, body").animate(
-            {
-                scrollTop: $(".content-box-3").offset().top - 100,
-            },
-            1000
-        );
-        hideMobileMenu();
-    });
-
-    $("#mobile-menu-aboutme").click(function () {
-        if (checkIfOnIndexPage() == false) {
-            window.location.href = "index.html?scrollTo=aboutme";
+            window.location.href = "index.html?scrollTo=about";
         }
         $("html, body").animate(
             {
@@ -406,22 +307,22 @@ $(document).ready(function () {
         hideMobileMenu();
     });
 
-    $("#mobile-menu-challenges").click(function () {
+    $("#mobile-menu-photos").click(function () {
         if (checkIfOnIndexPage() == false) {
-            window.location.href = "index.html?scrollTo=challenges";
+            window.location.href = "index.html?scrollTo=photos";
         }
         $("html, body").animate(
             {
-                scrollTop: $(".content-box-7").offset().top - 100,
+                scrollTop: $("#content-box-images").offset().top - 100,
             },
             1000
         );
         hideMobileMenu();
     });
 
-    $("#mobile-menu-contactme").click(function () {
+    $("#mobile-menu-quote").click(function () {
         if (checkIfOnIndexPage() == false) {
-            window.location.href = "index.html?scrollTo=contactme";
+            window.location.href = "index.html?scrollTo=quote";
         }
         $("html, body").animate(
             {
@@ -429,11 +330,6 @@ $(document).ready(function () {
             },
             1000
         );
-        hideMobileMenu();
-    });
-
-    $("#mobile-menu-merchandise").click(function () {
-        window.location.href = "merchandise.html";
         hideMobileMenu();
     });
     //
@@ -469,7 +365,7 @@ $(document).ready(function () {
                         );
                     }
                     break;
-                case "aboutme":
+                case "about":
                     {
                         $("html, body").animate(
                             {
@@ -479,27 +375,17 @@ $(document).ready(function () {
                         );
                     }
                     break;
-                case "challenges":
+                case "photos":
                     {
                         $("html, body").animate(
                             {
-                                scrollTop: $(".content-box-7").offset().top - 100,
+                                scrollTop: $("#content-box-images").offset().top - 100,
                             },
                             1000
                         );
                     }
                     break;
-                case "programs":
-                    {
-                        $("html, body").animate(
-                            {
-                                scrollTop: $(".content-box-3").offset().top - 100,
-                            },
-                            1000
-                        );
-                    }
-                    break;
-                case "contactme":
+                case "quote":
                     {
                         $("html, body").animate(
                             {

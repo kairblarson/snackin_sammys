@@ -556,6 +556,7 @@ a {
     justify-content: start;
     width: 100%;
     gap: 50px;
+    max-width: 1000px;
 }
 .trial-wrapper {
     display: flex;
@@ -758,7 +759,7 @@ a {
         min-width: 0px;
     }
     .nav-button-container {
-        gap: 10px;
+        gap: 20px;
     }
     .content-box-2-wrapper {
         flex-direction: column;
