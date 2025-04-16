@@ -120,8 +120,8 @@
                             <input placeholder="Event Address" id="event_address" name="event_address" class="text-inputs" />
                             <!-- <input id="event_date" name="event_date" class="text-inputs" type="date" />
                             <input id="event_time" name="event_time" class="text-inputs" type="time" /> -->
-                            <input id="event_date" name="event_date" class="text-inputs" type="text" placeholder="Select date" />
-                            <input id="event_time" name="event_time" class="text-inputs" type="text" placeholder="Select time" />
+                            <input id="event_date" name="event_date" class="text-inputs" type="text" placeholder="Event Date" />
+                            <input id="event_time" name="event_time" class="text-inputs" type="text" placeholder="Time of Event" />
                             <input placeholder="Number of Guests" id="no_of_guests" name="no_of_guests" class="text-inputs" type="number" />
                             <textarea placeholder="Additional Information" id="additional_info" name="additional_info"></textarea>
                             <button class="send-msg-btn" id="send-msg-btn" type="submit">
@@ -177,15 +177,25 @@
     <script src="script.js?vers=11"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
+        // Date picker
         flatpickr("#event_date", {
-            dateFormat: "Y-m-d", // same format as input[type=date]
+          dateFormat: "Y-m-d",
+          allowInput: true, // Allow manual input so placeholder stays visible until selection
+          onReady: function(selectedDates, dateStr, instance) {
+            instance._input.setAttribute("placeholder", "Select date");
+          }
         });
-
+      
+        // Time picker
         flatpickr("#event_time", {
-            enableTime: true,
-            noCalendar: true,
-            dateFormat: "H:i", // 24-hour format like input[type=time]
-            time_24hr: true,
+          enableTime: true,
+          noCalendar: true,
+          dateFormat: "H:i",
+          time_24hr: true,
+          allowInput: true,
+          onReady: function(selectedDates, dateStr, instance) {
+            instance._input.setAttribute("placeholder", "Select time");
+          }
         });
-    </script>
+      </script>
 </html>
