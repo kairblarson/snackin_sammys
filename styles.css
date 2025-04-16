@@ -561,6 +561,7 @@ a {
     width: 100%;
     gap: 50px;
     max-width: 1000px;
+    margin-bottom: 50px;
 }
 .trial-wrapper {
     display: flex;
