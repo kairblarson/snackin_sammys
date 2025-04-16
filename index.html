@@ -11,7 +11,7 @@
             rel="stylesheet"
         />
         <script src="https://js.stripe.com/v3/"></script>
-        <link rel="icon" type="image/x-icon" href="images/favicon.ico?vers=2" />
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico?vers=3" />
         <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
         <title>Catering Solutions | Smackin Sammy's</title>
         <meta name="description" content="Discover personalized beauty and skincare solutions to enhance your natural glow. Join us for expert beauty tips and product recommendations." />
@@ -98,11 +98,14 @@
                 </div>
                 <div class="content-box" id="content-box-images">
                     <div id="content-box-images-container">
-                        <img src="images/food.gif" class="food-img" />
+                        <!-- <img src="images/food.gif" class="food-img" /> -->
+                        <img src="images/food1.jpg" class="food-img" />
+                        <img src="images/food2.jpg" class="food-img" />
+                        <img src="images/food3.jpg" class="food-img" />
                     </div>
                 </div>
                 <!-- <div class="line-break"></div> -->
-                <form class="content-box-4" style="padding: 50px" id="contact-form">
+                <form class="content-box-4" id="contact-form">
                     <h2 class="content-box-4-title">GET A QUOTE TODAY!</h2>
                     <br />
                     <h3 style="max-width: 80%; text-align: center">Feel free to send me an inquiry to get a quote today!</h3>
@@ -114,8 +117,8 @@
                             <input placeholder="Phone Number" id="phone_no" name="phone_no" class="text-inputs" type="number" />
                             <input placeholder="Event Type" id="event_type" name="event_type" class="text-inputs" />
                             <input placeholder="Event Address" id="event_address" name="event_address" class="text-inputs" />
-                            <input placeholder="Date" id="event_date" name="event_date" class="text-inputs" type="date" />
-                            <input placeholder="Time of Event" id="event_time" name="event_time" class="text-inputs" type="time" />
+                            <input id="event_date" name="event_date" class="text-inputs" type="date" />
+                            <input id="event_time" name="event_time" class="text-inputs" type="time" />
                             <input placeholder="Number of Guests" id="no_of_guests" name="no_of_guests" class="text-inputs" type="number" />
                             <textarea placeholder="Additional Information" id="additional_info" name="additional_info"></textarea>
                             <button class="send-msg-btn" id="send-msg-btn" type="submit">

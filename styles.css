@@ -182,11 +182,14 @@ select {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     width: 100%;
+    gap: 10px;
 }
 .food-img {
-    width: 80%;
-    max-width: 800px;
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
 }
 .content-box-3,
 .content-box-2,
@@ -776,7 +779,7 @@ a {
         height: 500px;
     }
     .contact-wrapper {
-        width: 100%;
+        width: 90%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -811,7 +814,7 @@ a {
         flex-direction: column;
     }
     .content-box-2-content {
-        max-width: 80%;
+        max-width: 90%;
     }
 }
 
@@ -914,6 +917,7 @@ a {
     }
     .contact-wrapper {
         margin-bottom: 50px;
+        width: 90%;
     }
     .brand-logo-footer {
         width: 30px;
@@ -938,6 +942,7 @@ a {
         height: 300px;
     }
     .content-box-4 {
+        /* padding: 20px; */
     }
     .merch-container {
         flex-direction: column;
