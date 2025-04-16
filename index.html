@@ -199,5 +199,35 @@
                 instance._input.setAttribute("placeholder", "Select time");
             },
         });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const dateInput = document.getElementById("event_date");
+            const timeInput = document.getElementById("event_time");
+
+            const datePicker = flatpickr(dateInput, {
+                dateFormat: "Y-m-d",
+                allowInput: true,
+                clickOpens: true,
+                onReady: function (_, __, instance) {
+                    setTimeout(() => {
+                        instance._input.setAttribute("placeholder", "Select date");
+                    }, 10); // small delay is key for iOS
+                },
+            });
+
+            const timePicker = flatpickr(timeInput, {
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true,
+                allowInput: true,
+                clickOpens: true,
+                onReady: function (_, __, instance) {
+                    setTimeout(() => {
+                        instance._input.setAttribute("placeholder", "Select time");
+                    }, 10);
+                },
+            });
+        });
     </script>
 </html>
