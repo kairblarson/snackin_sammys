@@ -118,10 +118,16 @@
                             <input placeholder="Phone Number" id="phone_no" name="phone_no" class="text-inputs" type="number" />
                             <input placeholder="Event Type" id="event_type" name="event_type" class="text-inputs" />
                             <input placeholder="Event Address" id="event_address" name="event_address" class="text-inputs" />
-                            <!-- <input id="event_date" name="event_date" class="text-inputs" type="text" />
-                            <input id="event_time" name="event_time" class="text-inputs" type="text" /> -->
-                            <input id="event_date" name="event_date" class="text-inputs" type="text" placeholder="Select date" />
-                            <input id="event_time" name="event_time" class="text-inputs" type="text" placeholder="Select time" />
+                            <div style="display: flex; width: 100%; position: relative">
+                                <input id="event_date" name="event_date" class="text-inputs" type="date" />
+                                <label id="event_date_label" name="event_date_label" class="text-inputs custom-label" for="event_date">Event Date</label>
+                            </div>
+                            <div style="display: flex; width: 100%; position: relative">
+                                <input id="event_time" name="event_time" class="text-inputs" type="time" />
+                                <label id="event_time_label" name="event_time_label" class="text-inputs custom-label">Time of Event</label>
+                            </div>
+                            <!-- <input id="event_date" name="event_date" class="text-inputs" type="text" placeholder="Select date" />
+                            <input id="event_time" name="event_time" class="text-inputs" type="text" placeholder="Select time" /> -->
                             <input placeholder="Number of Guests" id="no_of_guests" name="no_of_guests" class="text-inputs" type="number" />
                             <textarea placeholder="Additional Information" id="additional_info" name="additional_info"></textarea>
                             <button class="send-msg-btn" id="send-msg-btn" type="submit">
@@ -175,59 +181,12 @@
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="script.js?vers=11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-        // Init Flatpickr for date
-        flatpickr("#event_date", {
-            dateFormat: "Y-m-d",
-            allowInput: true,
-            defaultDate: null,
-            onReady: function (selectedDates, dateStr, instance) {
-                instance._input.setAttribute("placeholder", "Select date");
-            },
+        $("#event_date").change(function () {
+            $("#event_date_label").hide();
         });
-
-        // Init Flatpickr for time
-        flatpickr("#event_time", {
-            enableTime: true,
-            noCalendar: true,
-            dateFormat: "H:i",
-            time_24hr: true,
-            allowInput: true,
-            defaultDate: null,
-            onReady: function (selectedDates, dateStr, instance) {
-                instance._input.setAttribute("placeholder", "Select time");
-            },
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const dateInput = document.getElementById("event_date");
-            const timeInput = document.getElementById("event_time");
-
-            const datePicker = flatpickr(dateInput, {
-                dateFormat: "Y-m-d",
-                allowInput: true,
-                clickOpens: true,
-                onReady: function (_, __, instance) {
-                    setTimeout(() => {
-                        instance._input.setAttribute("placeholder", "Select date");
-                    }, 10); // small delay is key for iOS
-                },
-            });
-
-            const timePicker = flatpickr(timeInput, {
-                enableTime: true,
-                noCalendar: true,
-                dateFormat: "H:i",
-                time_24hr: true,
-                allowInput: true,
-                clickOpens: true,
-                onReady: function (_, __, instance) {
-                    setTimeout(() => {
-                        instance._input.setAttribute("placeholder", "Select time");
-                    }, 10);
-                },
-            });
+        $("#event_time").change(function () {
+            $("#event_time_label").hide();
         });
     </script>
 </html>

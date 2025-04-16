@@ -1018,3 +1018,12 @@ span:nth-last-child(2) {
 #menuToggle input:checked ~ span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
 }
+.text-inputs::placeholder, .text-inputs, textarea{
+    color: #888888; /* Custom gray color */
+}
+.custom-label {
+    position: absolute;
+    width: calc(100% - 40px);
+    border-right: none;
+    /* background-color: transparent; */
+}
