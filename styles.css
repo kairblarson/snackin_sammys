@@ -503,6 +503,7 @@ p {
     width: 100%;
     background-color: white;
     box-sizing: border-box;
+    height: 36px;
 }
 input:focus,
 textarea:focus {
